@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 7% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 240 6% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 240 6% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 0 100% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 6% 7%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 74%;
+
+    --accent: 0 100% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 0 100% 62%;
+
+    --radius: 0.25rem;
+
+    --surface: 240 6% 7%;
+    --text-secondary: 240 5% 74%;
+    --accent-deep: 350 70% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+  }
+
+  ::selection {
+    background-color: hsl(0 100% 62% / 0.3);
+    color: hsl(0 0% 96%);
+  }
+}
+
+@layer components {
+  .red-line {
+    @apply bg-primary;
+    height: 1px;
+  }
+
+  .red-dot {
+    @apply w-2 h-2 rounded-full bg-primary;
+  }
+
+  .section-label {
+    @apply font-heading text-xs font-medium tracking-[0.3em] uppercase text-primary;
+  }
+
+  .glass-border {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Sora', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+
+  .text-secondary-custom {
+    color: hsl(var(--text-secondary));
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(240 7% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(0 100% 62% / 0.4);
+  border-radius: 2px;
+}
